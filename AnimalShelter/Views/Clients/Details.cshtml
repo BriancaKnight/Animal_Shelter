@@ -3,12 +3,27 @@
 }
 
 @model AnimalShelter.Models.Client
+@using AnimalShelter.Models
 
-<h2> Client Details - @Model.ClientName</h2>
+<h2> Caretaker Details - @Model.ClientName</h2>
 <hr />
 
-<p>No animals yet</p>
-<p>@Html.ActionLink("Edit this client", "Edit", new { id = @Model.ClientId})</p>
-<p>@Html.ActionLink("Delete client", "Delete", new { id = Model.ClientId})</p>
+@if (@Model.Animals.Count ==  0)
+{
+  <h3>No animals have been added to this caretaker yet!</h3>
+}
+else
+{
+  <h3>Animals:</h3>
+    <div>
+    @foreach (Animal animal in Model.Animals)
+    {
+    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", "Items", new { id = animal.AnimalId})</h4>
+    }
+  </div>
+}
 
-<p>@Html.ActionLink("Back to Client list", "Index")</p>
+<p>@Html.ActionLink("Edit this caretaker", "Edit", new { id = @Model.ClientId})</p>
+<p>@Html.ActionLink("Delete caretaker", "Delete", new { id = Model.ClientId})</p>
+
+<p>@Html.ActionLink("Back to caretaker list", "Index")</p>
