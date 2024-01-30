@@ -12,7 +12,7 @@
 @foreach (Animal animal in Model)
 {
   <div>
-    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details")</h4>
+    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", new { id = animal.AnimalId})</h4>
   </div>
 }
 

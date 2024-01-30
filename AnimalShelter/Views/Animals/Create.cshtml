@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Animal
+
+<h4>Add a new Animal</h4>
+
+@using (Html.BeginForm())
+{
+
+  @Html.LabelFor(model => model.AnimalName)
+  @Html.TextBoxFor(model => model.AnimalName)
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
+  @Html.LabelFor(model => model.AnimalBreed)
+  @Html.TextBoxFor(model => model.AnimalBreed)
+
+  <input type="submit" value="Add new anmial" />
+}
+
+<p>@Html.ActionLink("Show all animals", "Index")</p>
