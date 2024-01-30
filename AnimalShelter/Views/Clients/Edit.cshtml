@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Client
+
+<h3> Edit Client - @Model.ClientName</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ClientId)
+
+  @Html.LabelFor(model => model.ClientName)
+  @Html.TextBoxFor(model => model.ClientName)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to client list", "Index")</p>
