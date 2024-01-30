@@ -18,6 +18,10 @@
   @Html.LabelFor(model => model.AnimalBreed)
   @Html.TextBoxFor(model => model.AnimalBreed)
 
+
+  @Html.LabelFor(model => model.Client)
+  @Html.DropDownList("ClientId")
+
   <input type="submit" value="Save" />
 }
 

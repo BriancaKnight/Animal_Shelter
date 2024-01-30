@@ -29,12 +29,18 @@ namespace AnimalShelter.Controllers
     public ActionResult Create()
     {
       ViewBag.PageTitle = "Add a New Animal";
+      ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "ClientName");
+      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View();
     }
 
   [HttpPost]
   public ActionResult Create(Animal animal)
   {
+    if (animal.ClientId == 0)
+    {
+      return RedirectToAction("Create");
+    }
     ViewBag.PageTitle = "Can you see this???";
     animal.AdmittanceDate = DateTime.Now;
     _db.Animals.Add(animal);
@@ -44,7 +50,9 @@ namespace AnimalShelter.Controllers
 
   public ActionResult Details(int id)
   {
-    Animal selectedAnimal = _db.Animals.FirstOrDefault(animal => animal.AnimalId == id);
+    Animal selectedAnimal = _db.Animals
+                                  .Include(animal => animal.Client)
+                                  .FirstOrDefault(animal => animal.AnimalId == id);
     ViewBag.PageTitle = $"Details - {selectedAnimal.AnimalName}";
     return View(selectedAnimal);
   }
@@ -53,6 +61,7 @@ namespace AnimalShelter.Controllers
   {
     var selectedAnimal = _db.Animals.FirstOrDefault(animal => animal.AnimalId == id);
     ViewBag.PageTitle = $"Edit - {selectedAnimal.AnimalName}";
+    ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "Name");
     return View(selectedAnimal);
   }
 

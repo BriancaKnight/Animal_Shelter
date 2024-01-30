@@ -18,7 +18,7 @@ else
     <div>
     @foreach (Animal animal in Model.Animals)
     {
-    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", "Items", new { id = animal.AnimalId})</h4>
+    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", "Animals", new { id = animal.AnimalId})</h4>
     }
   </div>
 }
