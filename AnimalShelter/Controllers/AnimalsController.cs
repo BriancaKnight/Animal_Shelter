@@ -22,17 +22,20 @@ namespace AnimalShelter.Controllers
       List<Animal> model = _db.Animals
                               .Include(animal => animal.Client)
                               .ToList();
+      ViewBag.PageTitle = "View All Animals";
       return View(model);
     }
 
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Add a New Animal";
       return View();
     }
 
   [HttpPost]
   public ActionResult Create(Animal animal)
   {
+    ViewBag.PageTitle = "Can you see this???";
     animal.AdmittanceDate = DateTime.Now;
     _db.Animals.Add(animal);
     _db.SaveChanges();
@@ -42,12 +45,14 @@ namespace AnimalShelter.Controllers
   public ActionResult Details(int id)
   {
     Animal selectedAnimal = _db.Animals.FirstOrDefault(animal => animal.AnimalId == id);
+    ViewBag.PageTitle = $"Details - {selectedAnimal.AnimalName}";
     return View(selectedAnimal);
   }
 
   public ActionResult Edit(int id)
   {
     var selectedAnimal = _db.Animals.FirstOrDefault(animal => animal.AnimalId == id);
+    ViewBag.PageTitle = $"Edit - {selectedAnimal.AnimalName}";
     return View(selectedAnimal);
   }
 
@@ -62,6 +67,7 @@ namespace AnimalShelter.Controllers
   public ActionResult Delete(int id)
   {
     Animal selectedAnimal = _db.Animals.FirstOrDefault(animal => animal.AnimalId == id);
+    ViewBag.PageTitle = $"Delete - {selectedAnimal.AnimalName}";
     return View(selectedAnimal);
   }
 

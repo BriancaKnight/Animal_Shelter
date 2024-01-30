@@ -7,6 +7,7 @@ namespace AnimalShelter.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "Home - Animal Shelter";
       return View();
     }
   }

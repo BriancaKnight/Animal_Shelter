@@ -18,11 +18,13 @@ namespace AnimalShelter.Controllers
     public ActionResult Index()
     {
       List<Client> model = _db.Clients.ToList();
+      ViewBag.PageTitle = "View All Caretakers";
       return View(model);
     }
 
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Add a New Caretakers";
       return View();
     }
 
@@ -36,15 +38,17 @@ namespace AnimalShelter.Controllers
 
     public ActionResult Details(int id)
     {
-      Client selectedClient = _db.Clients.
+      Client selectedClient = _db.Clients
                                   .Include(client => client.Animals)
                                   .FirstOrDefault(client => client.ClientId == id);
+       ViewBag.PageTitle = $"Details - {selectedClient.ClientName}";
       return View(selectedClient);
     }
     
     public ActionResult Edit (int id)
     {
       Client selectedClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+       ViewBag.PageTitle = $"Edit - {selectedClient.ClientName}";
       return View(selectedClient);
     }
 
@@ -59,6 +63,7 @@ namespace AnimalShelter.Controllers
     public ActionResult Delete(int id)
     {
       Client selectedClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+       ViewBag.PageTitle = $"Delete - {selectedClient.ClientName}";
       return View(selectedClient);
     }
 

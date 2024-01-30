@@ -4,13 +4,13 @@
 
 @model AnimalShelter.Models.Client
 
-<h3>Add a new Client</h4>
+<h3>Add a new Caretaker</h4>
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.ClientName)
   @Html.TextBoxFor(model => model.ClientName)
-  <input type="submit" value="Add a new client" />
+  <input type="submit" value="Add a new caretaker" />
 }
 
-<p>@Html.ActionLink("Show all clients", "Index")</p>
+<p>@Html.ActionLink("Show all caretakers", "Index")</p>
