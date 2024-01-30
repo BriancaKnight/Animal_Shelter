@@ -9,6 +9,7 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.AnimalId)
+  @Html.HiddenFor(model => model.AdmittanceDate)
 
   @Html.LabelFor(model => model.AnimalName )
   @Html.TextBoxFor(model => model.AnimalName)
