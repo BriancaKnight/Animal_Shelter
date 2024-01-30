@@ -24,7 +24,7 @@ namespace AnimalShelter.Controllers
 
       if (query != null)
       {
-        return await results?.Where(animal => animal.AnimalName.Contains(query)).ToListAsync();
+        return await results?.Where(animal => animal.AnimalName.Contains(query) || animal.AnimalBreed.Contains(query) || animal.Client.ClientName.Contains(query)).ToListAsync();
       }
       else 
       {
