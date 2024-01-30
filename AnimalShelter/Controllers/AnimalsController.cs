@@ -35,6 +35,7 @@ namespace AnimalShelter.Controllers
     public async Task<IActionResult> Index(string query)
     {
       List<Animal> resultList = await SearchMethod(query);
+      ViewBag.PageTitle = "View Animals";
       return View(resultList);
     }
 
@@ -51,7 +52,6 @@ namespace AnimalShelter.Controllers
     {
       ViewBag.PageTitle = "Add a New Animal";
       ViewBag.ClientId = new SelectList(_db.Clients, "ClientId", "ClientName");
-      // ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
       return View();
     }
 
