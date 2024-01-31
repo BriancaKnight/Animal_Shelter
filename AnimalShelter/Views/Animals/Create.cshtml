@@ -4,10 +4,12 @@
 
 @model AnimalShelter.Models.Animal
 
-<p><strong>NOTE:</strong>You need to have at least one caretaker before you can add an animal </p>
-<p>Go to @Html.ActionLink("this page", "Create", "Clients") to create a new caretaker.</p>
-
-<h4>Add a new Animal</h4>
+<div class="warningMessage">
+<strong>NOTE:</strong>You need to have at least one caretaker before you can add an animal. Go to @Html.ActionLink("this page", "Create", "Clients") to create a new caretaker.
+</div>
+<br>
+<h3>Add a new Animal</h3>
+<br>
 
 @using (Html.BeginForm())
 {
@@ -22,7 +24,9 @@
   @Html.LabelFor(model => model.Client)
   @Html.DropDownList("ClientId")
 
-  <input type="submit" value="Add new anmial" class="btn btn-default" />
+  <input type="submit" value="Add new animal" />
 }
-
+<br>
+<div class="navigation">
 <p>@Html.ActionLink("Show all animals", "Index")</p>
+</div>

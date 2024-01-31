@@ -5,7 +5,7 @@
 @model AnimalShelter.Models.Client
 @using AnimalShelter.Models
 
-<h2> Caretaker Details - @Model.ClientName</h2>
+<h3> Caretaker Details - @Model.ClientName</h3>
 <hr />
 
 @if (@Model.Animals.Count ==  0)
@@ -15,15 +15,18 @@
 else
 {
   <h3>Animals:</h3>
-    <div>
+    <div class="animalsList">
     @foreach (Animal animal in Model.Animals)
     {
-    <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", "Animals", new { id = animal.AnimalId})</h4>
+      <div class="animalsListItem">
+        <h4>@Html.ActionLink($"{animal.AnimalName}", "Details", "Animals", new { id = animal.AnimalId})</h4>
+      </div>
     }
   </div>
 }
 
-<p>@Html.ActionLink("Edit this caretaker", "Edit", new { id = @Model.ClientId})</p>
-<p>@Html.ActionLink("Delete caretaker", "Delete", new { id = Model.ClientId})</p>
-
-<p>@Html.ActionLink("Back to caretaker list", "Index")</p>
+<div class="navigation">
+<div>@Html.ActionLink("Edit this caretaker", "Edit", new { id = @Model.ClientId})</div>
+<div>@Html.ActionLink("Delete caretaker", "Delete", new { id = Model.ClientId})</div>
+<div>@Html.ActionLink("Back to caretaker list", "Index")</div>
+</div>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+
+#header {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  background: #c3f2cb5a;
+}
+
+input {
+  border-radius: 20px
+}
+
+.warningMessage {
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.086);
+}
+
+h1,
+h3 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navigation {
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1%;
+}
+
+.homeNavigation {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  font-size: xx-large;
+}
+
+.animalsList {
+  text-align: center;
+  align-items: center;
+}
+
+.animalsListItem {
+  border-style: outset;
+  /* width: 40%; */
+  padding-left: 30%;
+  padding-right: 30%;
+  margin: 8px;
+  border-radius: 10px;
+}
+p,
+h4,
+a {
+  font-family: "Lato", sans-serif;
+}

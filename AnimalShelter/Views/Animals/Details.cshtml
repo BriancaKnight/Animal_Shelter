@@ -4,7 +4,7 @@
 
 @model AnimalShelter.Models.Animal
 
-<h2>Animal Details - @Model.AnimalName</h2>
+<h3>Animal Details - @Model.AnimalName</h3>
 <hr />
 
 <p>Type of Animal : @Model.Type</p>
@@ -12,6 +12,8 @@
 <p>Admittance Date: @Model.AdmittanceDate</p>
 <p>@Html.DisplayNameFor(model => model.Client): @Html.DisplayFor(model => model.Client.ClientName)</p>
 
-<p>@Html.ActionLink("Edit animal", "Edit", new { id = Model.AnimalId})</p>
-<p>@Html.ActionLink("Delete animal", "Delete", new { id = Model.AnimalId})</p>
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<div class="navigation">
+<div>@Html.ActionLink("Edit animal", "Edit", new { id = Model.AnimalId})</div>
+<div>@Html.ActionLink("Delete animal", "Delete", new { id = Model.AnimalId})</div>
+<div>@Html.ActionLink("Back to list", "Index")</div>
+</div>

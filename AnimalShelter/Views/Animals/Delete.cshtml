@@ -4,12 +4,15 @@
 
 @model AnimalShelter.Models.Animal
 
+<h3>Delete Animal - @Model.AnimalName</h3>
 <p>Are you sure you want to delete this animal?</p>
 
-@Html.DisplayNameFor(model => model.AnimalName): @Html.DisplayFor(model => model.AnimalName)
+
 @using (Html.BeginForm())
 {
   <input type="submit" value="Delete" />
 }
-
+<br />
+<div class="navigation">
 @Html.ActionLink("Return to animal list", "Index")
+</div>
